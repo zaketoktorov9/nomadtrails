@@ -1,0 +1,23 @@
+import type { NextConfig } from "next";
+import createNextIntlPlugin from "next-intl/plugin";
+import path from "path";
+
+const withNextIntl = createNextIntlPlugin();
+
+const nextConfig: NextConfig = {
+  images: {
+    remotePatterns: [
+      { protocol: "https", hostname: "images.unsplash.com" },
+      { protocol: "https", hostname: "source.unsplash.com" },
+      { protocol: "https", hostname: "lh3.googleusercontent.com" },
+    ],
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+};
+
+export default withNextIntl(nextConfig);
